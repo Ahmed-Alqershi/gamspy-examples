@@ -266,14 +266,14 @@ def main():
     )
     sqrtx.lo[...] = 0
 
-    # Alternatively, use the Graph API:
-    # graph = formulations.PWLGraph(
+    # Alternatively, use the Curve API:
+    # curve = formulations.PWLCurve(
     #     list(zip(x_points, y_points, strict=True)),
     #     left_gradient=left_gradient,
     #     right_gradient=right_gradient,
     # )
     # sqrtx, eqs = formulations.pwlinear(
-    #     x, graph, method="convexity", using="sos2"
+    #     x, curve, method="convexity", using="sos2"
     # )
 
     defobjdisc = Sum([i, j], c[i, j] * sqrtx[i, j])
@@ -307,10 +307,10 @@ def main():
         x, x_points, y_points, using="sos2"
     )
 
-    # Alternatively, use the Graph API:
-    # graph = formulations.PWLGraph(list(zip(x_points, y_points, strict=True)))
+    # Alternatively, use the Curve API:
+    # curve = formulations.PWLCurve(list(zip(x_points, y_points, strict=True)))
     # sqrtx, eqs = formulations.pwlinear(
-    #     x, graph, method="convexity", using="sos2"
+    #     x, curve, method="convexity", using="sos2"
     # )
 
     defobjdisc = Sum([i, j], c[i, j] * sqrtx[i, j])
@@ -332,8 +332,8 @@ def main():
     # formulation.
     sqrtx, eqs = formulations.pwl_interval_formulation(x, x_points, y_points)
 
-    # Alternatively, use the Graph API with the graph defined above:
-    # sqrtx, eqs = formulations.pwlinear(x, graph, method="interval")
+    # Alternatively, use the Curve API with the curve defined above:
+    # sqrtx, eqs = formulations.pwlinear(x, curve, method="interval")
 
     defobjdisc = Sum([i, j], c[i, j] * sqrtx[i, j])
 
